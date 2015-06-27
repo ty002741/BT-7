@@ -3,7 +3,108 @@
 ##題目發想緣起
 身為熱血男兒，心中總對坦克車這種曾經稱霸陸地的軍是載具有著一種莫名的愛慕。因此，在那份熱血的驅使之下，決定利用這次專題的機會，開始打造自己的坦克。<br>
 BT-7，是蘇聯1935至1940年間生產的一種輕型坦克，其最大特色是將履帶卸除後一就可以使用路輪行駛。會選擇他當作本次專案的題目其實是因為當初決定要製作坦克之後，想使用Moli實驗室的3D列印打造車體，但是當時列印的材料已經不夠了，因此本來會改成製作四輪驅動車，就很像是坦克車拿掉履帶後剩下路輪的緣故。<br>
+##實作所需材料（取得來源、價位）
 
+<table>
+	<thead>
+		<tr>
+			<td>材料名稱</td>
+			<td>數量</td>
+			<td>單價</td>
+			<td>總價</td>
+			<td>來源</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>杜邦線(公母)</td>
+			<td>總數40條(使用6條)</td>
+			<td>NTD90</td>
+			<td>NTD90</td>
+			<td rowspan="3">電子材料行</td>
+		</tr>
+		<tr>
+			<td>杜邦線(母母)</td>
+			<td>總數40條(使用4條)</td>
+			<td>NTD100</td>
+			<td>NTD100</td>
+		</tr>
+		<tr>
+			<td>電池盒(3號8入)</td>
+			<td>1個</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>雙層四驅自走車組(含4馬達)</td>
+			<td>一組(使用兩顆馬達)</td>
+			<td>NTD650</td>
+			<td>NTD650</td>
+			<td rowspan="2"><a href="http://www.raspberrypi.com.tw/purchase/shop/robotics/">台灣樹梅派網站</a></td>
+		</tr>
+		<tr>
+			<td>L298N馬達控制板</td>
+			<td>1個</td>
+			<td>NTD160</td>
+			<td>NTD160</td>
+		</tr>
+		<tr>
+			<td>鐵絲</td>
+			<td>6米</td>
+			<td>NTD20</td>
+			<td>NTD20</td>
+			<td rowspan="4">五金行</td>
+		</tr>
+		<tr>
+			<td>1分螺絲1.5吋(10入)</td>
+			<td>總數10個(使用2個)</td>
+			<td>NTD6</td>
+			<td>NTD6</td>
+		</tr>
+		<tr>
+			<td>1分螺絲1吋(10入)</td>
+			<td>總數10個(使用2個)</td>
+			<td>NTD6</td>
+			<td>NTD6</td>
+		</tr>
+		<tr>
+			<td>1分螺絲冒(10入)</td>
+			<td>總數10個(使用6個)</td>
+			<td>NTD6</td>
+			<td>NTD6</td>
+		</tr>
+		<tr>
+			<td>3D列印_車體_block</td>
+			<td>2個</td>
+			<td>5g</td>
+			<td>10g</td>
+			<td rowspan="5"><a href="https://www.facebook.com/MOLi.rocks">MOLi</a>友情贊助</td>
+		</tr>
+		<tr>
+			<td>3D列印_車體_chassis</td>
+			<td>1個</td>
+			<td>30g</td>
+			<td>30g</td>
+		</tr>
+		<tr>
+			<td>3D列印_車體_idler_wheel</td>
+			<td>2個</td>
+			<td>11.8g</td>
+			<td>23.6g</td>
+		</tr>
+		<tr>
+			<td>3D列印_車體_motor_wheel</td>
+			<td>2個</td>
+			<td>11.8g</td>
+			<td>23.6g</td>
+		</tr>
+			<td>3D列印_車體_tread</td>
+			<td>48個</td>
+			<td>3g</td>
+			<td>144g</td>
+		</tr>
+	</tbody>
+</table>
 ##使用的現有軟體與來源
 PuTTY<br>
 [PuTTY官網](http://www.chiark.greenend.org.uk/~sgtatham/putty/)<br>
