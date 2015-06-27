@@ -2,13 +2,13 @@
 
 ##題目發想緣起
 身為熱血男兒，心中總對坦克車這種曾經稱霸陸地的軍是載具有著一種莫名的愛慕。因此，在那份熱血的驅使之下，決定利用這次專題的機會，開始打造自己的坦克。<br>
-BT-7，是蘇聯1935至1940年間生產的一種輕型坦克，其最大特色是將履帶卸除後一就可以使用路輪行駛。會選擇他當作本次專案的題目其實是因為當初決定要製作坦克之後，想使用Moli實驗室的3D列印打造車體，但是當時列印的材料已經不夠了，因此本來會改成製作四輪驅動車，就很像是坦克車拿掉履帶後剩下路輪的緣故。
+BT-7，是蘇聯1935至1940年間生產的一種輕型坦克，其最大特色是將履帶卸除後一就可以使用路輪行駛。會選擇他當作本次專案的題目其實是因為當初決定要製作坦克之後，想使用Moli實驗室的3D列印打造車體，但是當時列印的材料已經不夠了，因此本來會改成製作四輪驅動車，就很像是坦克車拿掉履帶後剩下路輪的緣故。<br>
 
 ##使用的現有軟體與來源
 PuTTY<br>
-PuTTY官網[GitHub](http://www.chiark.greenend.org.uk/~sgtatham/putty/)<br>
+[PuTTY官網](http://www.chiark.greenend.org.uk/~sgtatham/putty/)<br>
 UP! V2.15<br>
-UP3D官網[GitHub](http://www.pp3dp.com/)<br>
+[UP3D官網](http://www.pp3dp.com/)<br>
 python-RPi.GPIO<br>
 http://rsapberrypi.collabora.com<br>
 ##實作過程（碰到哪些問題、如何解決）
@@ -20,7 +20,7 @@ http://rsapberrypi.collabora.com<br>
 
 ##運用哪些與課程內容中GPIO線材相關的技巧
 使用USB TTL線才連接Raspberry Pi 2 設定相關參數。<br>
-組裝過程及製作教學（GPIO線材的安裝、3D列印後的組裝...）
+##組裝過程及製作教學（GPIO線材的安裝、3D列印後的組裝...）
 ###3D列印<br>
 首先請到pp3dp 下載3DUP設備列印程式，再到thingiverse 這個網站可以下載 3D模組，而我們下載的是Mini tank 模組裡面有五個模組，分別是tread.stl、block.stl、chassis.stl、motor_wheel.stl、idler_wheel.stl。<br>
 ![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/002.png)<br>
@@ -56,7 +56,7 @@ motor_wheel 、 block和馬達 各一個組合。
 ![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/015.jpg)<br>
 
 ###GPIO線材的安裝
-![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/015.png)<br>
+![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/016.png)<br>
 
 ###程式
 本次專案的程式碼主要著重在GPIO的輸出控製。<br>
@@ -65,7 +65,7 @@ gpio.setmode(gpio.BOARD)<br>
 或<br>
 gpio.setmode(gpio.BCM)<br>
 這裡我們選擇gpio.setmode(gpio.BOARD)來使用，BOARD的呼叫方式是使用右圖的中間兩排數字來區別各pin腳，因此在操作上個人覺得比較方便，不需要一直對照圖表，而且也能與硬體接線上的數字相同，方便整個專案中的溝通。<br>
-![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/016.png)<br>
+![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/017.png)<br>
 接下來則是設定ping腳的輸出或輸入模式，這裡我們選擇使用gpio.setup(pin, gpio.OUT)，使用gpio.OUT模式時，該pin腳只會有輸出與不輸出兩種狀態，對我們的操控已經是夠用了。<br>
 接下來就是實作控制的部分了<br>
 gpio.output(pin, True/False)<br>
