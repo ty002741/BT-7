@@ -2,7 +2,9 @@
 
 ##題目發想緣起
 身為熱血男兒，心中總對坦克車這種曾經稱霸陸地的軍是載具有著一種莫名的愛慕。因此，在那份熱血的驅使之下，決定利用這次專題的機會，開始打造自己的坦克。<br>
+
 BT-7，是蘇聯1935至1940年間生產的一種輕型坦克，其最大特色是將履帶卸除後一就可以使用路輪行駛。會選擇他當作本次專案的題目其實是因為當初決定要製作坦克之後，想使用Moli實驗室的3D列印打造車體，但是當時列印的材料已經不夠了，因此本來會改成製作四輪驅動車，就很像是坦克車拿掉履帶後剩下路輪的緣故。<br>
+
 ##實作所需材料（取得來源、價位）
 
 <table>
@@ -106,24 +108,29 @@ BT-7，是蘇聯1935至1940年間生產的一種輕型坦克，其最大特色�
 	</tbody>
 </table>
 ##使用的現有軟體與來源
-PuTTY<br>
-[PuTTY官網](http://www.chiark.greenend.org.uk/~sgtatham/putty/)<br>
-UP! V2.15<br>
-[UP3D官網](http://www.pp3dp.com/)<br>
-python-RPi.GPIO<br>
-http://rsapberrypi.collabora.com<br>
+- PuTT：[PuTTY官網](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+- UP! V2.1：[UP3D官網](http://www.pp3dp.com/)
+- [python-RPi.GPIO](http://rsapberrypi.collabora.com)
+
 ##實作過程（碰到哪些問題、如何解決）
 一開始再設定Raspberrt Pi 2時，因為手上剛好有多餘的鍵盤滑鼠與HDMI線，因此打算直接輸出螢幕來進行後續的實做，在設定HDMI輸出的參數時，有蠻多項目可以設定，因此花了一些時間在這個項目的設定上。<br>
-控制的程式大致上都寫好之後，必須開始處理有關搖控的部分，由於手上有的設備只有Wifi網卡，因此打算透過WiFi來連線，但是我們安裝的raspbian版本在圖形化介面中並沒有看到直接設定WiFi的，於是回到command line的模式下直接對無線網路的設定檔做修改，但是原先對Linux的設定設定文件作編輯並沒有太多經驗，又遇上很多網路上的教學文件版本不大一樣，因此只能土法煉鋼的一樣一樣嘗試。<br>
+
+控制的程式大致上都寫好之後，必須開始處理有關搖控的部分，由於手上有的設備只有Wifi網卡，因此打算透過WiFi來連線，但是我們安裝的raspbian版本在圖形化介面中並沒有看到直接設定WiFi的，於是回到command line的模式下直接對無線網路的設定檔做修改，但是原先對Linux的設定設定文件作編輯並沒有太多經驗，又遇上很多網路上的教學
+文件版本不大一樣，因此只能土法煉鋼的一樣一樣嘗試。<br>
+
 當RPi成功連上網路後，下一步就是要準備解決操作的問題，一開始想採取SSH直接連線的模式來操作，但是我們使用的python操作介面是需要使用GUI的介面，因此在SSH連線的模式下並無法正常運作，但是短時間內我們也無法把整個操作介面更改掉，因此最後是採用RDP遠端桌面協議的方式來解決，雖然不是完美的遙控解決方案，但不失為一個暫時性的低成本接決方案。<br>
 當我們在組裝車身的時候，我們發現上面的孔徑大小不對，所以我們拿了電鑽開始將洞弄成我們需要的孔徑，結果事情不如預期的順利，一開始我們上方電鑽往下鑽，不料塑膠材質韌性不足，所以斷裂，而事發當日剛好又是評審的前一天，所以我們做了危機處理，以膠帶和束帶先行固定。效果還不錯如下圖。<br>
+
 ![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/001.jpg)<br>
 
 ##運用哪些與課程內容中GPIO線材相關的技巧
 使用USB TTL線才連接Raspberry Pi 2 設定相關參數。<br>
+
 ##組裝過程及製作教學（GPIO線材的安裝、3D列印後的組裝...）
+
 ###3D列印<br>
 首先請到pp3dp 下載3DUP設備列印程式，再到thingiverse 這個網站可以下載 3D模組，而我們下載的是Mini tank 模組裡面有五個模組，分別是tread.stl、block.stl、chassis.stl、motor_wheel.stl、idler_wheel.stl。<br>
+
 ![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/002.png)<br>
 開啟：開啟所下在地stl檔，將畫好的3D模組載入控制台中(可以同時多個模組)。<br>
 存檔：可以將擺放好的模組樣式分法儲存成UPP檔案。<br>
@@ -163,7 +170,9 @@ motor_wheel 、 block和馬達 各一個組合。
 本次專案的程式碼主要著重在GPIO的輸出控製。<br>
 首先要設定我們程式終如何定義GPIO的腳位，在python-RPi.gpio中有兩種呼叫方式，分別為<br>
 gpio.setmode(gpio.BOARD)<br>
+
 或<br>
+
 gpio.setmode(gpio.BCM)<br>
 這裡我們選擇gpio.setmode(gpio.BOARD)來使用，BOARD的呼叫方式是使用右圖的中間兩排數字來區別各pin腳，因此在操作上個人覺得比較方便，不需要一直對照圖表，而且也能與硬體接線上的數字相同，方便整個專案中的溝通。<br>
 ![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/017.png)<br>
@@ -182,11 +191,13 @@ z：倒左轉<br>
 c：倒右轉<br>
 q：原地左迴轉<br>
 e：原地右迴轉<br>
+
 ##工作分配表
 構想：黃伯雄、游晁偉、黃麟翔<br>
 材料準備：黃麟翔、游晁偉<br>
 車身組裝：黃麟翔、黃伯雄<br>
 程式：黃伯雄、游晁偉<br>
+
 ##參考來源
 Mini Tank by samp20<br>
 http://www.thingiverse.com/thing:132199/#instructions <br>
