@@ -123,7 +123,7 @@ http://rsapberrypi.collabora.com<br>
 使用USB TTL線才連接Raspberry Pi 2 設定相關參數。<br>
 ##組裝過程及製作教學（GPIO線材的安裝、3D列印後的組裝...）
 ###3D列印<br>
-首先請到pp3dp 下載3DUP設備列印程式，再到thingiverse 這個網站可以下載 3D模組，而我們下載的是Mini tank 模組裡面有五個模組，分別是tread.stl、block.stl、chassis.stl、motor_wheel.stl、idler_wheel.stl。<br>
+首先請到pp3dp 下載[3DUP](http://www.pp3dp.com/)設備列印程式，再到[thingiverse](http://www.thingiverse.com/) 這個網站可以下載 3D模組，而我們下載的是[Mini tank](http://www.thingiverse.com/thing:132199) 模組裡面有五個模組，分別是tread.stl、block.stl、chassis.stl、motor_wheel.stl、idler_wheel.stl。<br>
 ![GitHub Logo](https://github.com/NCNU-OpenSource/BT-7/blob/master/img/002.png)<br>
 開啟：開啟所下在地stl檔，將畫好的3D模組載入控制台中(可以同時多個模組)。<br>
 存檔：可以將擺放好的模組樣式分法儲存成UPP檔案。<br>
